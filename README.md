@@ -62,7 +62,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 Next in Figure No. 5...
 
 <img src ="https://user-images.githubusercontent.com/1431998/50370410-ec93d500-0573-11e9-9cb3-8e4d4304673a.png" width = "430px" align = "left"> 
-```javascript
+```
 select endingPinCount as epc,
         up,y1, 
         SQRT(SQUARE(x1-x0)+SQUARE(y1-y0)) as v1,
@@ -73,6 +73,7 @@ select endingPinCount as epc,
                        -- ATAN(CAST((x3-x2) as float)/CAST((y3-y2) as float)) as angle3
 from t1
 WHERE y2 IS NOT NULL;
+
 ```
 
 <img src= "https://user-images.githubusercontent.com/1431998/50361944-93a44c80-0533-11e9-8f3f-a096b771e9d1.png" width = "430px" align = "left"> 

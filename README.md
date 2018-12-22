@@ -62,8 +62,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 Next in Figure No. 5, the data has beeen sped to contain the ending PinCount, two speed calculations, the angle of approach and the x location of the ball.  Plotting this data using the Python library matplotlib, assure that the data collection and analsis process is as expected.
 
 <img src ="https://user-images.githubusercontent.com/1431998/50370410-ec93d500-0573-11e9-9cb3-8e4d4304673a.png" width = "430px" align = "left"> 
-`
-select endingPinCount as epc,up,
+`select endingPinCount as epc,up,
         SQRT(SQUARE(x1-x0)+SQUARE(y1-y0)) as v1,
         SQRT(SQUARE(x2-x1)+SQUARE(y2-y1)) as v2,
         ATAN(CAST((x2-x1) as float)/CAST((y2-y1) as float)) as theta,
@@ -71,8 +70,7 @@ select endingPinCount as epc,up,
                         --CAST(x1 as abs(float(x)-562)) as absx
                        -- ATAN(CAST((x3-x2) as float)/CAST((y3-y2) as float)) as angle3
 from t1
-WHERE y2 IS NOT NULL;
-`
+WHERE y2 IS NOT NULL;`
 
 <img src= "https://user-images.githubusercontent.com/1431998/50361944-93a44c80-0533-11e9-8f3f-a096b771e9d1.png" width = "430px" align = "left"> 
 <img src= "https://user-images.githubusercontent.com/1431998/50361945-93a44c80-0533-11e9-9ad9-fa544c7a3dab.png" width = "430px" align = "left">

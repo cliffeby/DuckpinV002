@@ -34,6 +34,32 @@ In Figure No. 1, I drag the IMPORT DATA object from the left menu and fill in th
 In Figure No. 2, I use a Pthon Script to calculate a new field(column) for the data. Drag the Ptyon Script object on the canvas and connect the imported data table.  This field is the number of pins standing for each observation. The function, numsUP() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframe.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
 
 The Python Script is easily edited using the sript tag in the right menu.  Sine AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and increasing complexity.  Error messages often terse.
+`python
+# imports up here can be used to 
+import pandas as pd
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a pandas.DataFrame
+#   Param<dataframe2>: a pandas.DataFrame
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    def numUp():
+        pcs = {}
+        for pinCount in range(0, 1023):
+            bits = bin(pinCount)
+            count = 0
+            # print(bits, str(bits))
+            for bit in str(bits[2:len(str(bits))]):
+                if bit == '1':
+                    count = count + 1
+                # print(bit, count)
+            pcs[pinCount] = count
+        return pcs
+
+    # Execution logic goes here
+    print('Input pandas.DataFrame #1:\r\n\r\n{0}'.format(dataframe1))
+    dataframe1['up']= dataframe1['endingPinCount'].map(numUp())
+    # Return value must be of a sequence of pandas.DataFrame
+    return dataframe1`
 </br>
 </br>
 

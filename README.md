@@ -33,7 +33,7 @@ The Python Script is easily edited using the sript tag in the right menu.  Sine 
 
 
 Next in Figure No. 3, I use a SQL Transformation to calulcate velocity and approach angle of the ball from the xy coordinates in the now pandas dataframe.  The SQLite cammands also eliminate records where the value of y2 is null.  
-```Python
+```python
 import pandas as pd
 # The entry point function can contain up to two input arguments:
 #   Param<dataframe1>: a pandas.DataFrame
@@ -62,7 +62,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 Next in Figure No. 5...
 
 <img src ="https://user-images.githubusercontent.com/1431998/50370410-ec93d500-0573-11e9-9cb3-8e4d4304673a.png" width = "430px" align = "left"> 
-```Python
+```javascript
 select endingPinCount as epc,
         up,y1, 
         SQRT(SQUARE(x1-x0)+SQUARE(y1-y0)) as v1,

@@ -59,7 +59,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     # Return value must be of a sequence of pandas.DataFrame
     return dataframe1
 ```
-
+Next in Figure No. 5...
 
 <img src ="https://user-images.githubusercontent.com/1431998/50370410-ec93d500-0573-11e9-9cb3-8e4d4304673a.png" width = "430px" align = "left"> 
 ```
@@ -69,7 +69,6 @@ select endingPinCount as epc,
         SQRT(SQUARE(x2-x1)+SQUARE(y2-y1)) as v2,
         ATAN(CAST((x2-x1) as float)/CAST((y2-y1) as float)) as theta,
         CAST(x1 as float) as x
-
                         --CAST(x1 as abs(float(x)-562)) as absx
                        -- ATAN(CAST((x3-x2) as float)/CAST((y3-y2) as float)) as angle3
 from t1

@@ -34,7 +34,7 @@ In Figure No. 1, I drag the IMPORT DATA object from the left menu and fill in th
 <img src= "https://user-images.githubusercontent.com/1431998/50361947-943ce300-0533-11e9-9b08-6a6d2720d61c.png" width = "430px" align = "left">
 <img src= "https://user-images.githubusercontent.com/1431998/50361948-943ce300-0533-11e9-80cb-8e0e6179fa69.png" width = "430px" align = "left">
 <img src= "https://user-images.githubusercontent.com/1431998/50361939-93a44c80-0533-11e9-8dc8-bc6bb2add296.png" width = "430px" align = "left">
-</br></br></br>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 In Figure No. 2, I use a Pthon Script to calculate a new field(column) for the data. Drag the Ptyon Script object on the canvas and connect the imported data table.  This field is the number of pins standing for each observation. The function, numsUP() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframe.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
 
 The Python Script is easily edited using the sript tag in the right menu.  Sine AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and increasing complexity.  Error messages often terse.

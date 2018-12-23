@@ -22,7 +22,7 @@ This example imports the stored pindata from Azure Tables and shapes it into a d
 In Figure No. 1, I drag the IMPORT DATA object from the left menu and fill in the blanks/drop down approach or the  “Launch import Data Wizzard” on the right menu.  Once successful credentials, containers and files names specified, the data is easily viewed and importantly can be viewed at each step in the process.  During testing, I used cached results to improve speed.
 
 
-<img src= "https://user-images.githubusercontent.com/1431998/50361942-93a44c80-0533-11e9-9d53-766f27f6a357.png" width = "430px" align = "left" padding = "10px">
+<img src= "https://user-images.githubusercontent.com/1431998/50361942-93a44c80-0533-11e9-9d53-766f27f6a357.png" width = "430px" align = "left">
 
 <img src= "(https://user-images.githubusercontent.com/1431998/50361943-93a44c80-0533-11e9-93d2-ccd651180dfd.png" width = "430px" align = "left">
 

@@ -55,6 +55,11 @@ In Figure No. 1, I drag the Import Data object from the left menu and fill in th
 </br>
 Figure No. 2 shows the visualized data.  Visualize is a right click option on most objects on the canvas.
 </br></br></br></br></br></br></br></br></br></br>
+</br>
+</br>
+</br>
+</br>
+</br>
 In Figure No. 3, I use a Pthon Script to calculate a new field(column) for the data. Drag the Ptyon Script object on the canvas and connect the imported data table.  This field is the number of pins standing for each observation. The function, numsUp() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframe.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
 
 The Python Script is easily edited using the sript tag in the right menu.  Since AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and then increasing complexity.  Error messages often terse.
@@ -79,7 +84,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     # Return value must be of a sequence of pandas.DataFrame
     return dataframe1
 ```
-</br></br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br>
 Next in Figure No. 5, I use a SQL Transformation to calulcate velocity and approach angle of the ball from the xy coordinates in the now pandas dataframe.  The SQLite cammands also eliminate records where the value of y2 is null.
 
 

@@ -47,9 +47,9 @@ This example imports the stored pindata from Azure Tables and shapes it into a d
 </br>
 </br>
 In Figure No. 1, I drag the Import Data object from the left menu and fill in the blanks/drop down approach or the  “Launch import Data Wizzard” on the right menu.  Once successful credentials, containers and files names are specified, the data is easily viewed and importantly can be viewed at each step in the process.  During testing, I used cached results to improve speed.
-
+</br></br></br>
 Figure No. 2 shows the visualized data.  Visualize is a right click option on most objects on the canvas.
-</br></br></br></br></br></br></br></br></br></br></br></br></br>
+</br></br></br></br></br></br></br></br></br></br>
 In Figure No. 3, I use a Pthon Script to calculate a new field(column) for the data. Drag the Ptyon Script object on the canvas and connect the imported data table.  This field is the number of pins standing for each observation. The function, numsUp() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframe.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
 
 The Python Script is easily edited using the sript tag in the right menu.  Since AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and then increasing complexity.  Error messages often terse.
@@ -89,6 +89,8 @@ select endingPinCount as epc,up,
 from t1
 WHERE y2 IS NOT NULL;
 ```
-Next in Figure No. 6, the data has been shaped to contain the ending PinCount, two speed calculations, the angle of approach and the x location of the ball.  Plotting this data using the Python library matplotlib, assures that the data collection and analysis process is as expected
+Finally in Figure No. 6, the data has been shaped to contain the ending PinCount, two speed calculations, the angle of approach and the x location of the ball.  Plotting this data using the Python library matplotlib, assures that the data collection and analysis process is as expected.  The python script for plotting the pins, ball location, distribution, and angle is unique to this application.  I have included it in Appendix B.
+
+To produce Appendix A, I did not use AMLS.  A straigh Python script provided more flexibility to use subplots and embedded tables.  This code is included as Appendix C.
 
 #### _Duckpins_ #

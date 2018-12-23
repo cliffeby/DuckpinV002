@@ -24,9 +24,9 @@ In Figure No. 1, I drag the IMPORT DATA object from the left menu and fill in th
 
 <img src= "https://user-images.githubusercontent.com/1431998/50361942-93a44c80-0533-11e9-9d53-766f27f6a357.png" width = "430px" align = "left" padding = "10px">
 
-<img src= "https://user-images.githubusercontent.com/1431998/50361947-943ce300-0533-11e9-9b08-6a6d2720d61c.png" width = "430px" align = "left">
-
 <img src= "(https://user-images.githubusercontent.com/1431998/50361943-93a44c80-0533-11e9-93d2-ccd651180dfd.png" width = "430px" align = "left">
+
+<img src= "https://user-images.githubusercontent.com/1431998/50361947-943ce300-0533-11e9-9b08-6a6d2720d61c.png" width = "430px" align = "left">
 
 <img src= "https://user-images.githubusercontent.com/1431998/50361944-93a44c80-0533-11e9-8f3f-a096b771e9d1.png" width = "430px" align = "left">
 

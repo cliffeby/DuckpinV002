@@ -25,7 +25,7 @@ This example imports the stored pindata from Azure Tables and shapes it into a d
 </br>
 </br>
 </br>
-In Figure No. 1, I drag the IMPORT DATA object from the left menu and fill in the blanks/drop down approach or the  “Launch import Data Wizzard” on the right menu.  Once successful credentials, containers and files names specified, the data is easily viewed and importantly can be viewed at each step in the process.  During testing, I used cached results to improve speed.
+In Figure No. 1, I drag the Import Data object from the left menu and fill in the blanks/drop down approach or the  “Launch import Data Wizzard” on the right menu.  Once successful credentials, containers and files names specified, the data is easily viewed and importantly can be viewed at each step in the process.  During testing, I used cached results to improve speed.
 <img src= "(https://user-images.githubusercontent.com/1431998/50361943-93a44c80-0533-11e9-93d2-ccd651180dfd.png" width = "430px" align = "left">
 <img src= "https://user-images.githubusercontent.com/1431998/50361942-93a44c80-0533-11e9-9d53-766f27f6a357.png" width = "430px" align = "left">
 <img src= "https://user-images.githubusercontent.com/1431998/50361945-93a44c80-0533-11e9-9ad9-fa544c7a3dab.png" width = "430px" align = "left">
@@ -35,13 +35,11 @@ In Figure No. 1, I drag the IMPORT DATA object from the left menu and fill in th
 <img src= "https://user-images.githubusercontent.com/1431998/50361948-943ce300-0533-11e9-80cb-8e0e6179fa69.png" width = "430px" align = "left">
 <img src= "https://user-images.githubusercontent.com/1431998/50361939-93a44c80-0533-11e9-8dc8-bc6bb2add296.png" width = "430px" align = "left">
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-In Figure No. 2, I use a Pthon Script to calculate a new field(column) for the data. Drag the Ptyon Script object on the canvas and connect the imported data table.  This field is the number of pins standing for each observation. The function, numsUP() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframe.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
+In Figure No. 3, I use a Pthon Script to calculate a new field(column) for the data. Drag the Ptyon Script object on the canvas and connect the imported data table.  This field is the number of pins standing for each observation. The function, numsUp() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframe.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
 
-The Python Script is easily edited using the sript tag in the right menu.  Sine AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and increasing complexity.  Error messages often terse.
+The Python Script is easily edited using the sript tag in the right menu.  Since AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and then increasing complexity.  Error messages often terse.
 
-
-
-Next in Figure No. 4, I use a SQL Transformation to calulcate velocity and approach angle of the ball from the xy coordinates in the now pandas dataframe.  The SQLite cammands also eliminate records where the value of y2 is null.  
+Next in Figure No. 5, I use a SQL Transformation to calulcate velocity and approach angle of the ball from the xy coordinates in the now pandas dataframe.  The SQLite cammands also eliminate records where the value of y2 is null.  
 ```python
 import pandas as pd
 # The entry point function can contain up to two input arguments:
@@ -68,7 +66,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     # Return value must be of a sequence of pandas.DataFrame
     return dataframe1
 ```
-Next in Figure No. 5, the data has beeen sped to contain the ending PinCount, two speed calculations, the angle of approach and the x location of the ball.  Plotting this data using the Python library matplotlib, assure that the data collection and analsis process is as expected.
+Next in Figure No. 6, the data has been shaped to contain the ending PinCount, two speed calculations, the angle of approach and the x location of the ball.  Plotting this data using the Python library matplotlib, assures that the data collection and analysis process is as expected.
 
 ```sql
 select endingPinCount as epc,up,

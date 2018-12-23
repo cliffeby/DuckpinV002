@@ -19,6 +19,7 @@ AMLS is a drag and drop interface primarily intended for creating machine learni
 This example imports the stored pindata from Azure Tables and shapes it into a dataset that can used to plot ball location and angle statistics for each group of pin results.  The tools take some time to adjust to.  SQLite is used in lieu of SQL and data imported for use by a Python script uses “pandas” , a data manipulation and statics import.  Syntax for both differ from their underlying base – SQL and Python, respectively. (But again, nothing that a little search and ctrl c, ctrl v can’t handle.)\
 <img src= "https://user-images.githubusercontent.com/1431998/50361940-93a44c80-0533-11e9-8864-12b2b042ae40.png" width = "430px" align = "left">
 
+<img src= "https://user-images.githubusercontent.com/1431998/50361947-943ce300-0533-11e9-9b08-6a6d2720d61c.png" width = "430px" align = "left">
 In Figure No. 1, I drag the IMPORT DATA object from the left menu and fill in the blanks/drop down approach or the  “Launch import Data Wizzard” on the right menu.  Once successful credentials, containers and files names specified, the data is easily viewed and importantly can be viewed at each step in the process.  During testing, I used cached results to improve speed.
 <img src= "(https://user-images.githubusercontent.com/1431998/50361943-93a44c80-0533-11e9-93d2-ccd651180dfd.png" width = "430px" align = "left">
 
@@ -32,11 +33,6 @@ In Figure No. 1, I drag the IMPORT DATA object from the left menu and fill in th
 <img src= "https://user-images.githubusercontent.com/1431998/50361947-943ce300-0533-11e9-9b08-6a6d2720d61c.png" width = "430px" align = "left">
 
 
-
-
-
-
-<img src= "https://user-images.githubusercontent.com/1431998/50361947-943ce300-0533-11e9-9b08-6a6d2720d61c.png" width = "430px" align = "left">
 
 
 <img src= "https://user-images.githubusercontent.com/1431998/50361948-943ce300-0533-11e9-80cb-8e0e6179fa69.png" width = "430px" align = "left">

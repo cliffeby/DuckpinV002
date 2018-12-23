@@ -17,9 +17,17 @@ AMLS is a drag and drop interface primarily intended for creating machine learni
 
 ### _AMLS Example_
 This example imports the stored pindata from Azure Tables and shapes it into a dataset that can used to plot ball location and angle statistics for each group of pin results.  The tools take some time to adjust to.  SQLite is used in lieu of SQL and data imported for use by a Python script uses “pandas” , a data manipulation and statics import.  Syntax for both differ from their underlying base – SQL and Python, respectively. (But again, nothing that a little search and ctrl c, ctrl v can’t handle.)\
+<img src= "https://user-images.githubusercontent.com/1431998/50384342-a92f8880-0691-11e9-80a2-b03baacce552.png" width = "430px" align = "left">
 <img src= "https://user-images.githubusercontent.com/1431998/50361940-93a44c80-0533-11e9-8864-12b2b042ae40.png" width = "430px" align = "left">
+<img src= "https://user-images.githubusercontent.com/1431998/50384342-a92f8880-0691-11e9-80a2-b03baacce552.png" width = "430px" align = "left">
 <img src = "https://user-images.githubusercontent.com/1431998/50384342-a92f8880-0691-11e9-80a2-b03baacce552.png" width = "430px" align = "left">
 <img src= "https://user-images.githubusercontent.com/1431998/50361947-943ce300-0533-11e9-9b08-6a6d2720d61c.png" width = "430px" align = "left">
+![figure]()
+![figure6]()
+![figure5](https://user-images.githubusercontent.com/1431998/50384482-29a2b900-0693-11e9-9f1f-31b8c697b46f.png)
+![figure4](https://user-images.githubusercontent.com/1431998/50384487-34f5e480-0693-11e9-81dd-a2ad425cc199.png)
+![figure5](https://user-images.githubusercontent.com/1431998/50384488-34f5e480-0693-11e9-84fb-258a11c139df.png)
+![figure6](https://user-images.githubusercontent.com/1431998/50384489-34f5e480-0693-11e9-9cc5-37d5c4658317.png)
 </br>
 </br>
 </br>

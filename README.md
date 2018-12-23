@@ -84,10 +84,8 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     # Return value must be of a sequence of pandas.DataFrame
     return dataframe1
 ```
-</br></br></br></br></br></br></br>
+</br>
 Next in Figure No. 5, I use a SQL Transformation to calulcate velocity and approach angle of the ball from the xy coordinates in the now pandas dataframe.  The SQLite cammands also eliminate records where the value of y2 is null.
-
-
 ```sql
 select endingPinCount as epc,up,
         SQRT(SQUARE(x1-x0)+SQUARE(y1-y0)) as v1,

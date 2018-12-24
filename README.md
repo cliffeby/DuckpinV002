@@ -102,4 +102,14 @@ Finally in Figure No. 6, the data has been shaped to contain the ending PinCount
 
 To produce Appendix A, I did not use AMLS.  A straigh Python script provided more flexibility to use subplots and embedded tables.  This code is included as Appendix C.
 
+Plots created using MatplotLib that can be visualized on the browser can be returned by the Execute Python Script. But the plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files if they are to be returned back to Azure Machine Learning.
+
+To generate images from MatplotLib, you must complete the following procedure:
+
+switch the backend to “AGG” from the default Qt-based renderer
+create a new figure object
+get the axis and generate all plots into it
+save the figure to a PNG file
+This process is illustrated in the following Figure 8 that creates a scatter plot matrix using the scatter_matrix function in Pandas.
+
 #### _Duckpins_ #

@@ -1,22 +1,24 @@
 # Duckpins -Project Documentation --Phase II
 
-Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking the "View on GitHub" in the adjacent panel.
+Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking the "View on GitHub" in the adjacent panel.  Cliff Eby Dec 2018
 
 <img src= "https://user-images.githubusercontent.com/1431998/46451141-c32c8f80-c762-11e8-9c70-25089f44a9af.png" width = "430px" align = "left">
 
 ### _Background_
-In Phase I  of Duckpins, I described the hardware, software and initial results of a project to illuminate the Lucite numbers on the headboards for Congressional Country Club’s Duckpin Bowling alleys.  Phase II is an update since October 2018 and focuses on tools for analysis, attempts to improve the streaming framerate, and alternative configurations for detecting the ball count and setter and reset actions.
+In Phase I  of Duckpins, I described the hardware, software and initial results of a project to illuminate the Lucite numbers on the headboards for Congressional Country Club’s duckpin bowling alleys.  Phase II is an update to the project and focuses on tools for analysis, improvement to the streaming framerate, and alternative configurations for detecting the ball count and setter and reset actions.
+
 ### _Data Analysis Tools_
-Phase I explains how nightly postprocessing of video data is analyzed and stored in an Azure table.  The data contain xy pairs of the ball locations that produce the endingPinCount.  The format of those records is:
+Phase I explains how nightly postprocessing of video data is analyzed and stored in an Azure table.  The json data contain xy pairs of the ball locations that produce the endingPinCount.  The format of those records is:
 
 `{'PartitionKey': 'Lane 4', 'RowKey': '20180927643118', 'beginingPinCount': 1023, 'endingPinCount': 0, 'x0': '634', 'y0': '829', 'x1': '637', 'y1': '702', >'x2': '641', 'y2': '596', 'x3': '642', 'y3': '510', 'x4': '576', 'y4': '306'}`
 
-The data in Azure tables can be exported to Excel or PowerBi and Phase I contained a simple spreadsheet for sorting and reviewing static data.  For a more dynamic approach, I explored Azure Machine Learning Studio (AMLS) and with a little trial and error was able to create excellent visualizations and statistics.  Appendix A is a Matplotlib graphic of the top 20 endingPinCount results.
+The data in Azure tables can be exported to Excel or PowerBi and Phase I contained a simple spreadsheet for sorting and reviewing static data.  For a more dynamic approach, I explored Azure Machine Learning Studio (AMLS) and with a little trial and error was able to create excellent visualizations and statistics.  Appendix A is a Matplotlib graphic of the top 20 endingPinCount results from the Azure table data.
 
-AMLS is a drag and drop interface primarily intended for creating machine learning models.  It has extensive data shaping tools and makes access to Azure data seamless.  You can also import Python scripts for greater analysis and visualization with AMLS or the python matplotlib import.  Processes can be exported to Juptyer Notebooks.  To get started in AMLS, take a look at a couple of short YouTube videos e.g. https://www.youtube.com/watch?v=csFDLUYnq4w or if you have an Azure account (free), click through the https://studio.azureml.net/Home/ Experiment Tutorial and then one of the other samples that reflect your area of interest.
+AMLS is a drag and drop interface primarily intended for creating machine learning models.  It has extensive data shaping tools and makes access to Azure data seamless.  You can also import Python scripts for greater analysis.  Data visualization with AMLS or the python matplotlib import is supported and processes can be exported to Juptyer Notebooks.  To get started in AMLS, take a look at a couple of short YouTube videos e.g. https://www.youtube.com/watch?v=csFDLUYnq4w or if you have an Azure account (free), click through the https://studio.azureml.net/Home/ Experiment Tutorial and then one of the other samples that reflect your area of interest.
 
 ### _AMLS Visualization Example_
-This example imports the stored pindata from Azure Tables and shapes it into a dataset that can used to plot ball location and angle statistics for each group of pin results.  The tools take some time to adjust to.  SQLite is used in lieu of SQL and data imported for use by a Python script uses “pandas” , a data manipulation and statics import.  Syntax for both differ from their underlying base – SQL and Python, respectively. (But again, nothing that a little search and ctrl c, ctrl v can’t handle.)\
+This example imports the stored pindata from Azure Tables and shapes it into a dataset that can used to plot ball location and angle statistics for each group of pin results.  The tools take some time to adjust to.  SQLite is used in lieu of SQL and data imported for use by a Python script uses “Pandas” , a data manipulation and statistics import.  Syntax for both differ from their underlying base – SQL and Python, respectively. (But again, nothing that a little search and ctrl c, ctrl v can’t handle.)
+
 <!-- + fig 1 + -->
 <img src= "https://user-images.githubusercontent.com/1431998/50384550-29ef8400-0694-11e9-9a1c-b38f8f28a3b5.png" width = "430px" align = "left">
 <!-- + img 1 + -->
@@ -63,9 +65,9 @@ Figure No. 2 shows the visualized data.  Visualize is a right click option on mo
 </br>
 </br>
 </br>
-In Figure No. 3, I use a Pthon Script to calculate a new field(column) for the data. Drag the Ptyon Script object on the canvas and connect the imported data table.  This field is the number of pins standing for each observation. The function, numsUp() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframe.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
+In Figure No. 3, I use a Pthon Script to create a new field(column) for the data. Drag the Pthyon Script object on the canvas and connect it to the imported data table.  This new field is the number of pins standing for each record. The function, numsUp() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframes.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
 
-The Python Script is easily edited using the sript tag in the right menu.  Since AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and then increasing complexity.  Error messages often terse.
+The Python Script is easily edited using the sript tag in the right menu.  Since AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and then increasing complexity.  AMLS error messages often terse.
 ```python
 import pandas as pd
 # The entry point function can contain up to two input arguments:
@@ -88,7 +90,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return dataframe1
 ```
 </br>
-Next in Figure No. 4, I use a SQL Transformation to calulcate velocity and approach angle of the ball from the xy coordinates in the now pandas dataframe.  The SQLite cammands also eliminate records where the value of y2 is null.
+Next in Figure No. 4, I use a SQL Transformation to calulcate velocity and approach angle of the ball from the xy coordinates in the now pandas dataframe.  The SQLite WHERE command also eliminates records where the value of y2 is null.
 
 ```sql
 select endingPinCount as epc,up,
@@ -99,7 +101,7 @@ select endingPinCount as epc,up,
 from t1
 WHERE y2 IS NOT NULL;
 ```
-Finally in Figures No. 5 & 6, the data has been shaped to contain the ending PinCount, two speed calculations, the angle of approach and the x location of the ball.  Plotting this data using the Python library matplotlib, assures that the data collection and analysis process is as expected.  The python script for plotting the pins, ball location, distribution, and angle is unique to this application.  I have included it in Appendix B.
+Finally in Figures No. 5 & 6, the data has been shaped to contain the ending PinCount, two speed calculations, the angle of approach and the x location of the ball.  Plotting this data using the Python library matplotlib, assures that the data collection and analysis process are as expected.  The python script for plotting the pins, ball location, distribution, and angle is unique to this application.  I have included it in Appendix B.
 
 To produce Appendix A, I did not use AMLS.  A straight Python script provided more flexibility to use subplots and embedded tables.  This code is included as Appendix C.
 
@@ -110,23 +112,27 @@ To produce Appendix A, I did not use AMLS.  A straight Python script provided mo
 </br>
 
 ### _AMLS Analytics Sample_
-A question posed in Phase I was, "How does speed affect score?"  One approach is to comapre speed to the number of pins remaining after a ball is thrown at 10 pins.  Using the dataset shaped above, I grouped the data by pinsUp and plotted the speed of the ball.  
+A question posed in Phase I was, "How does ball speed affect score?"  One approach is to compare speed to the number of pins remaining after a ball is thrown at 10 pins.  Using the dataset shaped above, I grouped the data by pinsUp and plotted the speed of the ball.  
 <img src ="https://user-images.githubusercontent.com/1431998/50408064-4386ed80-07b2-11e9-955b-2b77e9c08f58.png" width = "430px" align = "left">
 Figure No. 7 shows the result and it appears that there is slight advantage to faster ball speeds. The plot shows that the average speed is highest for strikes and then 9s. Scores of 8 through 4 also reflect the benefit of ball speed.  Only when scores are 3, 2 and 1 does the data show the benefit of a slower roll.
 
-Similar analysis could be performed for the ball angle.
+A similar analysis could be performed for the ball angle.
 </br></br></br></br></br></br>
+
+### _Jupyter Notebook_
+
+### _Improving Framerates_
 
 ### _Hardware Updates_
 #### GPIO Breakout Kit
-As GPIO pin use grew to support the 7-segment ball indicator and the input from the laser tripwire to detect the ball, it became difficult to adjust the wiring and to keep them tightly inserted in the RPI and the relay and sensor boards.  Breakout kits povide some flexibility but but require soldering to a PCB board and managing the maze of jumper wires is not improved.  I'm current using the breakout booard, but may try to change GPIO pin numbers to keep as much of the ribbon connected as possible.
+As GPIO pin use grew to support the 7-segment ball indicator and the input from the laser tripwire to detect the ball, it became difficult to adjust the wiring and to keep the jumper wires tightly inserted in the RPI, relay, and sensor boards.  Breakout kits povide some flexibility but but require soldering to a PCB board and managing the maze of jumper wires is not improved.  I'm current using the breakout board, but may go back to the direct RPI connection and change GPIO pin numbers to keep as much of the ribbon unseparated as possible.
 
 #### Photoresistor modules
-Digital output from a photoresistor was used by the laser tripwire to detect ball movement.  I found that the tripwire's sensitivity could detect all balls, but that the Python script running on the RPI was not able to reliable read the HIGH input value on the GPIO pin.  When it was performing other activities (finding pins or movement with the reset arm or setter) it missed the HIGH state and would not count the tripping event.
+Digital output from a photoresistor was used by the laser tripwire to detect ball movement.  I found that the tripwire's sensitivity could detect all balls, but that the Python script running on the RPI was not able to reliable read the HIGH input value on the GPIO pin.  When it was performing other activities (finding pins or movement with the reset arm or setter), it often missed the HIGH state and would not count the tripping event.
 <img src ="https://user-images.githubusercontent.com/1431998/50408086-a7111b00-07b2-11e9-9457-481a062cc2db.jpg" width = "200px" align = "left">
-To solve this issue, I plan to try a Bistable latching relay module.  This will "save" the HIGH state of the output pin until the RPI is ready to read it.  At that point,it gets reset.  This relay also solves a voltage issue as the photoresistor module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
+To solve this issue, I plan to try a Bistable latching relay module.  This will "save" the HIGH state of the output pin until the RPI is ready to read it.  At that point, it gets reset to LOW and the ball counter is incremented.  This relay also solves a voltage issue as the photoresistor module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
 
-An alternative to the reset arm and setter detection routines is also being considered.  Both the reset arm and setter (deadwood) actions are user initiated by buttons at the head of the lane.  Both actions turn on lights on the head board that stay lighted dure the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the cycle is long enough to avoid the need for the latching relay.   
+An alternative to the reset arm and setter detection routines is also being considered.  Both the reset arm and setter (deadwood) actions are user initiated by buttons at the head of the lane.  Both actions turn on lights on the headboard that stay lighted during the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the light cycle is long enough to avoid the need for the latching relay.   
 
 
 ### _Appendix A - Plots of high-frequency results_
@@ -155,8 +161,8 @@ matplotlib.use ('agg' ) #Change backend to PNG
 import matplotlib.pyplot as plt
 
 # The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a pandas.DataFrame
-#   Param<dataframe2>: a pandas.DataFrame
+#   Param<dataframe1>: a pandas.DataFrame -format is  up, v1, v2, theta, x  
+#   Param<dataframe2>: a pandas.DataFrame -not used
 def azureml_main(dataframe1 = None, dataframe2 = None):
 
     fig =plt.figure() 
@@ -229,15 +235,15 @@ def drawPins(endingPinCount, index, value, g):
     ax.scatter(round(g.iloc[5][5]-center,10),0,s=2*round(g.iloc[2][5],0))
     # create table and entries
     #format of grouped.describe() 'g' - use g.iloc[row][col]
-#          epc    up          v1          v2      theta           x
-# count   54.0  54.0   54.000000   54.000000   54.000000  54.000000   54.000000   54.000000
-# mean   832.0   3.0  243.000000  137.884240  122.308169   0.039974  762.148148  200.148148
-# std      0.0   0.0   55.422562   33.159582   19.883357   0.068052   42.807779   42.807779
-# min    832.0   3.0  120.000000   47.010637   55.901699  -0.160988  688.000000  126.000000
-# 25%    832.0   3.0  204.000000  118.735935  112.631173  -0.004934  726.250000  164.250000
-# 50%    832.0   3.0  239.500000  141.851328  124.008064   0.036108  766.000000  204.000000  #--median
-# 75%    832.0   3.0  284.500000  160.333228  135.058465   0.087142  792.000000  230.000000
-# max    832.0   3.0  373.000000  201.486972  163.248277   0.179853  850.000000  288.000000
+#          epc    up          v1          v2      theta           x         absx
+# count   224.0  224.0  224.000000  224.000000  224.000000  224.000000  224.000000
+# mean   1015.0    9.0  108.776786   99.799016   -0.191964   89.531250  472.468750
+# std       0.0    0.0   47.187957   33.526380    0.394727   45.949172   45.949172
+# min    1015.0    9.0   10.000000   10.816654   -1.000000   11.000000  321.000000
+# 25%    1015.0    9.0   76.750000   81.300756    0.000000   52.000000  443.000000
+# 50%    1015.0    9.0  111.500000  105.181259    0.000000   85.000000  477.000000  -- median
+# 75%    1015.0    9.0  138.250000  121.371143    0.000000  119.000000  510.000000
+# max    1015.0    9.0  268.000000  168.324092    0.000000  241.000000  551.000000
     cells =[[int(g.iloc[1][5]-center),int(g.iloc[1][2]),int(g.iloc[1][3]),round(g.iloc[1][4],2)],              #Row 1
             [round(g.iloc[5][5]-center,0),round(g.iloc[5][2],0),round(g.iloc[5][3],0),round(g.iloc[5][4],2)],  #Row 5
             [round(g.iloc[2][5],0),round(g.iloc[2][2],0),round(g.iloc[2][3],0),round(g.iloc[2][4],2)]]  #Row 2

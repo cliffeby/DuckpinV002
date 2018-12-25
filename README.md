@@ -1,6 +1,6 @@
 # Duckpins -Project Documentation --Phase II
 
-Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking on the adjacent box.
+Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking the "View on GitHub" in the adjacent panel.
 
 <img src= "https://user-images.githubusercontent.com/1431998/46451141-c32c8f80-c762-11e8-9c70-25089f44a9af.png" width = "430px" align = "left">
 
@@ -50,7 +50,10 @@ This example imports the stored pindata from Azure Tables and shapes it into a d
 </br>
 </br>
 In Figure No. 1, I drag the Import Data object from the left menu and fill in the blanks/drop down approach or the  “Launch import Data Wizzard” on the right menu.  Once successful credentials, containers and files names are specified, the data is easily viewed and importantly can be viewed at each step in the process.  During testing, I used cached results to improve speed.
-</br></br></br></br>
+</br>
+</br>
+</br>
+</br>
 </br>
 </br>
 Figure No. 2 shows the visualized data.  Visualize is a right click option on most objects on the canvas.
@@ -100,7 +103,11 @@ Finally in Figures No. 5 & 6, the data has been shaped to contain the ending Pin
 
 To produce Appendix A, I did not use AMLS.  A straight Python script provided more flexibility to use subplots and embedded tables.  This code is included as Appendix C.
 
-</br></br></br></br></br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
 ### _AMLS Analytics Sample_
 A question posed in Phase I was, "How does speed affect score?"  One approach is to comapre speed to the number of pins remaining after a ball is thrown at 10 pins.  Using the dataset shaped above, I grouped the data by pinsUp and plotted the speed of the ball.  

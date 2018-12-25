@@ -141,11 +141,11 @@ An alternative to the reset arm and setter detection routines is also being cons
 
 Plots created using MatplotLib in AMLS are not automatically redirected to images. The user must explicitly save any plots to PNG files.
 
-To generate images from MatplotLib, you must complete the following procedure:
--switch the backend to “AGG” from the default renderer
--create a new figure object
--get the axis and generate all plots into it
--save the figure to a PNG file
+To generate images from MatplotLib, use the following process:
+* switch the backend to “AGG” from the default renderer
+* create a new figure object
+* get the axis and generate all plots into it
+* save the figure to a PNG file
 
 ```python
 import pandas as pd

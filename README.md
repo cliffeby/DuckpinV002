@@ -128,10 +128,10 @@ An alternative to the reset arm and setter detection routines is also being cons
 
 ### _Appendix A_
 
-![figure_1](https://user-images.githubusercontent.com/1431998/50408078-9c568600-07b2-11e9-9834-7dfaa9269a3b.png)
-![figure_2](https://user-images.githubusercontent.com/1431998/50408079-9c568600-07b2-11e9-97b1-d29c5aec7759.png)
-![figure_3](https://user-images.githubusercontent.com/1431998/50408080-9c568600-07b2-11e9-9dcc-f430c7104297.png)
-![figure_4](https://user-images.githubusercontent.com/1431998/50408081-9c568600-07b2-11e9-85f9-fd39fa39f20b.png)
+![figure_1-1](https://user-images.githubusercontent.com/1431998/50408212-bee99e80-07b4-11e9-9aeb-db3362c42fd3.png)
+![figure_2-1](https://user-images.githubusercontent.com/1431998/50408213-bee99e80-07b4-11e9-892e-0556dd4522bc.png)
+![figure_3-1](https://user-images.githubusercontent.com/1431998/50408214-bee99e80-07b4-11e9-881d-b93e8e9ce015.png)
+![figure_4-1](https://user-images.githubusercontent.com/1431998/50408215-bee99e80-07b4-11e9-8f2d-2cf1304e4da1.png)
 ![figure_5](https://user-images.githubusercontent.com/1431998/50408082-9c568600-07b2-11e9-8c9e-b0653371eea0.png)
 
 ### _Appendix B_

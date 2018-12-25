@@ -1,6 +1,6 @@
 # Duckpins -Project Documentation --Phase II
 
-
+Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking on the adjeacent box.
 
 <img src= "https://user-images.githubusercontent.com/1431998/46451141-c32c8f80-c762-11e8-9c70-25089f44a9af.png" width = "430px" align = "left">
 
@@ -122,8 +122,18 @@ To solve this issue, I plan to try a Bistable latching relay module.  This will 
 
 An alternative to the reset arm and setter detection routines is also being considered.  Both the reset arm and setter (deadwood) actions are user initiated by buttons at the head of the lane.  Both actions turn on lights on the head board that stay lighted dure the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the cycle is long enough to avoid the need for the latching relay.   
 
+![download](https://user-images.githubusercontent.com/1431998/50408064-4386ed80-07b2-11e9-955b-2b77e9c08f58.png)
+
+![ldr](https://user-images.githubusercontent.com/1431998/50408086-a7111b00-07b2-11e9-9457-481a062cc2db.jpg)
 
 ### _Appendix A_
+
+![figure_1](https://user-images.githubusercontent.com/1431998/50408078-9c568600-07b2-11e9-9834-7dfaa9269a3b.png)
+![figure_2](https://user-images.githubusercontent.com/1431998/50408079-9c568600-07b2-11e9-97b1-d29c5aec7759.png)
+![figure_3](https://user-images.githubusercontent.com/1431998/50408080-9c568600-07b2-11e9-9dcc-f430c7104297.png)
+![figure_4](https://user-images.githubusercontent.com/1431998/50408081-9c568600-07b2-11e9-85f9-fd39fa39f20b.png)
+![figure_5](https://user-images.githubusercontent.com/1431998/50408082-9c568600-07b2-11e9-8c9e-b0653371eea0.png)
+
 ### _Appendix B_
 ### _Appendix C_
 

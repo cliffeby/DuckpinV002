@@ -100,12 +100,15 @@ Finally in Figures No. 5 & 6, the data has been shaped to contain the ending Pin
 
 To produce Appendix A, I did not use AMLS.  A straight Python script provided more flexibility to use subplots and embedded tables.  This code is included as Appendix C.
 
-</br></br></br></br>
+</br></br></br></br></br>
 
 ### _AMLS Analytics Sample_
-A question posed in Phase I was, "How does speed affect score?"  One approach is to comapre speed to the number of pins remaining after a ball is thrown at 10 pins.  Using the dataset shaped above, I grouped the data by pinsUp and plotted the speed of the ball.  Figure No. 7 shows the result and it appears that there is slight advantage to faster ball speeds. The plot shows that the average speed is highest for strikes and then 9s. Scores of 8 through 4 also reflect the benefit of ball speed.  Only when scores are 3, 2 and 1 does the data show the benefit of a slower roll.
+A question posed in Phase I was, "How does speed affect score?"  One approach is to comapre speed to the number of pins remaining after a ball is thrown at 10 pins.  Using the dataset shaped above, I grouped the data by pinsUp and plotted the speed of the ball.  
 <img src ="https://user-images.githubusercontent.com/1431998/50408064-4386ed80-07b2-11e9-955b-2b77e9c08f58.png" width = "430px" align = "left">
+Figure No. 7 shows the result and it appears that there is slight advantage to faster ball speeds. The plot shows that the average speed is highest for strikes and then 9s. Scores of 8 through 4 also reflect the benefit of ball speed.  Only when scores are 3, 2 and 1 does the data show the benefit of a slower roll.
+
 Similar analysis could be performed for the ball angle.
+</br></br></br></br></br>
 
 ### _Hardware Updates_
 #### GPIO Breakout Kit
@@ -136,6 +139,7 @@ To generate images from MatplotLib, you must complete the following procedure:
 -create a new figure object
 -get the axis and generate all plots into it
 -save the figure to a PNG file
+
 ```python
 import pandas as pd
 import math
@@ -163,7 +167,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
         # print('data', x, g.iloc[1][1])
     fig.savefig ("duckpin.png")
     return dataframe1,
-    ```
+```
 ### _Appendix C_
 
 ```python

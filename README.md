@@ -139,10 +139,10 @@ An alternative to the reset arm and setter detection routines is also being cons
 
 ### _Appendix B AMLS python script for plotting a figure_
 
-Plots created using MatplotLib that can be visualized on the browser can be returned by the Execute Python Script. But the plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files if they are to be returned back to Azure Machine Learning.
+Plots created using MatplotLib in AMLS are not automatically redirected to images. The user must explicitly save any plots to PNG files.
 
 To generate images from MatplotLib, you must complete the following procedure:
--switch the backend to “AGG” from the default Qt-based renderer
+-switch the backend to “AGG” from the default renderer
 -create a new figure object
 -get the axis and generate all plots into it
 -save the figure to a PNG file

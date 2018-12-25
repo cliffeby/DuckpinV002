@@ -104,11 +104,9 @@ To produce Appendix A, I did not use AMLS.  A straight Python script provided mo
 
 
 
-Plots created using MatplotLib that can be visualized on the browser can be returned by the Execute Python Script. But the plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files if they are to be returned back to Azure Machine Learning.
-
 ### _AMLS Analytics Sample_
 A question posed in Phase I was, "How does speed affect score?"  One approach is to comapre speed to the number of pins remaining after a ball is thrown at 10 pins.  Using the dataset shaped above, I grouped the data by pinsUp and plotted the speed of the ball.  Figure No. 7 shows the result and it appears that there is slight advantage to faster ball speeds. The plot shows that the average speed is highest for strikes and then 9s. Scores of 8 through 4 also reflect the benefit of ball speed.  Only when scores are 3, 2 and 1 does the data show the benefit of a slower roll.
-
+<img src ="https://user-images.githubusercontent.com/1431998/50408064-4386ed80-07b2-11e9-955b-2b77e9c08f58.png" width = "430px" align = "left">
 Similar analysis could be performed for the ball angle.
 
 ### _Hardware Updates_
@@ -117,14 +115,14 @@ As GPIO pin use grew to support the 7-segment ball indicator and the input from 
 
 #### Photoresistor modules
 Digital output from a photoresistor was used by the laser tripwire to detect ball movement.  I found that the tripwire's sensitivity could detect all balls, but that the Python script running on the RPI was not able to reliable read the HIGH input value on the GPIO pin.  When it was performing other activities (finding pins or movement with the reset arm or setter) it missed the HIGH state and would not count the tripping event.
-
+<img src ="https://user-images.githubusercontent.com/1431998/50408086-a7111b00-07b2-11e9-9457-481a062cc2db.jpg" width = "200px" align = "left">
 To solve this issue, I plan to try a Bistable latching relay module.  This will "save" the HIGH state of the output pin until the RPI is ready to read it.  At that point,it gets reset.  This relay also solves a voltage issue as the module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
 
 An alternative to the reset arm and setter detection routines is also being considered.  Both the reset arm and setter (deadwood) actions are user initiated by buttons at the head of the lane.  Both actions turn on lights on the head board that stay lighted dure the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the cycle is long enough to avoid the need for the latching relay.   
 
-![download](https://user-images.githubusercontent.com/1431998/50408064-4386ed80-07b2-11e9-955b-2b77e9c08f58.png)
 
-![ldr](https://user-images.githubusercontent.com/1431998/50408086-a7111b00-07b2-11e9-9457-481a062cc2db.jpg)
+
+![ldr]()
 
 ### _Appendix A_
 
@@ -146,5 +144,7 @@ save the figure to a PNG file
 This process is illustrated in the following Figure  that creates a scatter plot matrix using the scatter_matrix function in Pandas.
 
 
+
+Plots created using MatplotLib that can be visualized on the browser can be returned by the Execute Python Script. But the plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files if they are to be returned back to Azure Machine Learning.
 
 #### _Duckpins_ #

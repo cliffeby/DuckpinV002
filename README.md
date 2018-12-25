@@ -117,12 +117,12 @@ As GPIO pin use grew to support the 7-segment ball indicator and the input from 
 #### Photoresistor modules
 Digital output from a photoresistor was used by the laser tripwire to detect ball movement.  I found that the tripwire's sensitivity could detect all balls, but that the Python script running on the RPI was not able to reliable read the HIGH input value on the GPIO pin.  When it was performing other activities (finding pins or movement with the reset arm or setter) it missed the HIGH state and would not count the tripping event.
 <img src ="https://user-images.githubusercontent.com/1431998/50408086-a7111b00-07b2-11e9-9457-481a062cc2db.jpg" width = "200px" align = "left">
-To solve this issue, I plan to try a Bistable latching relay module.  This will "save" the HIGH state of the output pin until the RPI is ready to read it.  At that point,it gets reset.  This relay also solves a voltage issue as the module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
+To solve this issue, I plan to try a Bistable latching relay module.  This will "save" the HIGH state of the output pin until the RPI is ready to read it.  At that point,it gets reset.  This relay also solves a voltage issue as the photoresistor module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
 
 An alternative to the reset arm and setter detection routines is also being considered.  Both the reset arm and setter (deadwood) actions are user initiated by buttons at the head of the lane.  Both actions turn on lights on the head board that stay lighted dure the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the cycle is long enough to avoid the need for the latching relay.   
 
 
-### _Appendix A - Plots of high-frequency results _
+### _Appendix A - Plots of high-frequency results_
 
 ![figure_1-1](https://user-images.githubusercontent.com/1431998/50408212-bee99e80-07b4-11e9-9aeb-db3362c42fd3.png)
 ![figure_2-1](https://user-images.githubusercontent.com/1431998/50408213-bee99e80-07b4-11e9-892e-0556dd4522bc.png)

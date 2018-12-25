@@ -1,6 +1,6 @@
 # Duckpins -Project Documentation --Phase II
 
-Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking the "View on GitHub" in the adjacent panel.  Cliff Eby Dec 2018
+Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking the "View on GitHub" in the adjacent panel.         --Cliff Eby Dec 2018
 
 <img src= "https://user-images.githubusercontent.com/1431998/46451141-c32c8f80-c762-11e8-9c70-25089f44a9af.png" width = "430px" align = "left">
 

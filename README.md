@@ -258,7 +258,7 @@ def drawPins(endingPinCount, index, value, g):
 
 #  Sorts the data dictionary by desired order
 #  type = 'Count' sorts by most frequent
-#  type = 'Downed' sorts by best result
+#  type = 'Up' sorts by best result
 def arrangeDict(d,type):
     if type == 'Count' or type == '':
         # type = result
@@ -300,9 +300,7 @@ for (key, value) in sorted(arrangeDict(ecDict,'Count').items(), key=itemgetter(1
         continue
     endcountGroup = result.loc[result['epc'] == key]
     if index%10 ==0:
-        print('Stats for group ',index, endcountGroup.describe())   
-    if key==832:
-            print('832 records ', endcountGroup)    
+        print('Stats for group ',index, endcountGroup.describe())     
     drawPins(key, index, value,endcountGroup.describe())
     index = index+1
 

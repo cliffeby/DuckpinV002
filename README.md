@@ -1,6 +1,6 @@
 # Duckpins -Project Documentation --Phase II
 
-Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking on the adjeacent box.
+Note to reader - The Dinky styling for this page is not easily readable.  I suggest that you read on GitHub by clicking on the adjacent box.
 
 <img src= "https://user-images.githubusercontent.com/1431998/46451141-c32c8f80-c762-11e8-9c70-25089f44a9af.png" width = "430px" align = "left">
 
@@ -108,7 +108,7 @@ A question posed in Phase I was, "How does speed affect score?"  One approach is
 Figure No. 7 shows the result and it appears that there is slight advantage to faster ball speeds. The plot shows that the average speed is highest for strikes and then 9s. Scores of 8 through 4 also reflect the benefit of ball speed.  Only when scores are 3, 2 and 1 does the data show the benefit of a slower roll.
 
 Similar analysis could be performed for the ball angle.
-</br></br></br></br></br>
+</br></br></br></br></br></br>
 
 ### _Hardware Updates_
 #### GPIO Breakout Kit
@@ -122,7 +122,7 @@ To solve this issue, I plan to try a Bistable latching relay module.  This will 
 An alternative to the reset arm and setter detection routines is also being considered.  Both the reset arm and setter (deadwood) actions are user initiated by buttons at the head of the lane.  Both actions turn on lights on the head board that stay lighted dure the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the cycle is long enough to avoid the need for the latching relay.   
 
 
-### _Appendix A_
+### _Appendix A - Plots of high-frequency results _
 
 ![figure_1-1](https://user-images.githubusercontent.com/1431998/50408212-bee99e80-07b4-11e9-9aeb-db3362c42fd3.png)
 ![figure_2-1](https://user-images.githubusercontent.com/1431998/50408213-bee99e80-07b4-11e9-892e-0556dd4522bc.png)
@@ -130,7 +130,7 @@ An alternative to the reset arm and setter detection routines is also being cons
 ![figure_4-1](https://user-images.githubusercontent.com/1431998/50408215-bee99e80-07b4-11e9-8f2d-2cf1304e4da1.png)
 ![figure_5](https://user-images.githubusercontent.com/1431998/50408082-9c568600-07b2-11e9-8c9e-b0653371eea0.png)
 
-### _Appendix B_
+### _Appendix B AMLS python script for plotting a figure_
 
 Plots created using MatplotLib that can be visualized on the browser can be returned by the Execute Python Script. But the plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files if they are to be returned back to Azure Machine Learning.
 
@@ -168,7 +168,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     fig.savefig ("duckpin.png")
     return dataframe1,
 ```
-### _Appendix C_
+### _Appendix C - Python script for using Azure data to plot statistics for high-frequncy results_
 
 ```python
 import credentials
@@ -180,7 +180,6 @@ import pandas, math
 from collections import defaultdict, OrderedDict
 import matplotlib.pyplot as plt
 from operator import itemgetter
-
 
 container_name = 'dpanalysis'
 account_name = credentials.STORAGE_ACCOUNT_NAME
@@ -200,8 +199,7 @@ def bit_fill(pin, pinCount):
         return True
     else:
         return False
-
-        
+      
 def drawPins(endingPinCount, index, value, g):
     # xy pairs for pins on figure
     pinxy = [(570, 200), (405, 300), (725, 300), (240, 400), (570, 400),
@@ -266,7 +264,6 @@ def arrangeDict(d,type):
         #TODO
         return d    
 
-
 # Get CSV data fro Blob storage - Persist in this directory with same name as in Blob Storage
 block_blob_service = BlockBlobService(
     account_name=account_name, account_key=account_key)
@@ -305,8 +302,3 @@ for (key, value) in sorted(arrangeDict(ecDict,'Count').items(), key=itemgetter(1
 plt.tight_layout(pad=4.0, w_pad=0.5, h_pad=6.0)
 plt.show()
 ```
-
-
-
-
-#### _Duckpins_ #

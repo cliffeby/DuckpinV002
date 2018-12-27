@@ -773,7 +773,7 @@ fig.savefig ("duckpin.png")
 ```
 
 
-![png](output_13_0.png)
+![png]("https://user-images.githubusercontent.com/1431998/50466200-17ae6800-096a-11e9-8460-1997debbc14b.png")
 
 ### _Alternative Data Souces_
 #### Github Repo

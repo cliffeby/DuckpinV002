@@ -124,14 +124,14 @@ A similar analysis could be performed for the ball angle.
 
 ### _Jupyter Notebooks_
 
-Jupyter Notebooks, formerly iPython, is typically referred to as Jupyter.  With the beta release of Jupyter Labs, an IDE version, I will refer to just the notebook as JN to avoid confusion for future readers.  
+Jupyter Notebooks, formerly iPython, is typically referred to as Jupyter.  With the beta release of Jupyter Labs, an IDE version, I will refer to just the notebook as JN to avoid confusion for future readers.  I access JN through the Notebooks "preview" of AMLS.
 
-JN is a combination of Markdown with executable code in cells.  This example will repeat much of what was achieved above using AMLS. The text below is HTML, but the complete JN can be cloned from my GitHub repo.
+JN is a combination of Markdown with executable code in cells.  This example will repeat much of what was achieved above using AMLS. The text below is HTML/Markdown and not interactive, but the complete JN can be cloned from my GitHub repo.
 
-For a good description of JN on Azure, Scott Hanselman has a nice YouTube video on JN many features - https://www.youtube.com/watch?v=JWEhns28Cr4
+For a good description of JN on Azure, Scott Hanselman has a nice YouTube video on JN many features - https://www.youtube.com/watch?v=JWEhns28Cr4  If you are unfamiliar with JN, watch this video in advance to understand the format below.
 
 #### Azure Storage SDK
-Use pip or Annaconda (package managers) to install the azure storage sdk
+Surprizingly, I had to install the Azure Storage SDK in my Azure Jupyter notebook.  Use pip or Annaconda (package managers) to install it.
 
 !pip install azure-storage
 
@@ -773,7 +773,7 @@ fig.savefig ("duckpin.png")
 ```
 
 
-![png]("https://user-images.githubusercontent.com/1431998/50466200-17ae6800-096a-11e9-8460-1997debbc14b.png")
+![png](https://user-images.githubusercontent.com/1431998/50466200-17ae6800-096a-11e9-8460-1997debbc14b.png)
 
 ### _Alternative Data Souces_
 #### Github Repo

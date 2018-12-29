@@ -928,6 +928,18 @@ table_sas_token
 ### _Improving Framerates_
 Typically the video captured generates at least three frames for even the fastest balls.  In real time the RPI can not process each frame and allows the video to capture frame but does not process them.  As a result the ball is missed.  Several attempts to improve the frame rate were tried. Python offers threading and use of multiprocessing on the RPI's four cores.  Since the ball counter and trip wire process needed the greatest speed, it was moved to a thread and then later to a separte process. The frequency of chacking the pin count was varied and shown as in mod notation. The table below show caluclated frame rates while a RPI was running the DPBoot.py script.
 
+|FPS	| Resolution	| Pins |	Arm |	Thread	| Multiprocessing |
+--- | --- |--- | --- | --- | --- | 
+13  |640  |	   |	 |	x  |	 |  
+28  |640  |	   |	 |	   |	 |  
+7   |640  |	x  |	x|	x  |	 |  
+22  |640  |	xmod 2| x|	   |	 |  
+25  |640  |	xmod 5|	x |    |	 |  
+15  |640  |	x mod 2|x |	   |	x   |  
+7  |1440  |	   |	 |	x  |	 |  
+6  |1440  |   |	 |	x  |	 |  
+4.5  |1440  |x   |x	 |	x  |	 |  
+
 
 ### _Hardware Updates_
 #### GPIO Breakout Kit

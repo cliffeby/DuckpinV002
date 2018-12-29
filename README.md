@@ -66,7 +66,7 @@ Figure No. 2 shows the visualized data.  Visualize is a right click option on mo
 </br>
 </br>
 In Figure No. 3, I use a Pthon Script to create a new field(column) for the data. Drag the Pthyon Script object on the canvas and connect it to the imported data table.  This new field is the number of pins standing for each record. The function, numsUp() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframes.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
-
+</br>
 The Python Script is easily edited using the sript tag in the right menu.  Since AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and then increasing complexity.  AMLS error messages often terse.
 ```python
 import pandas as pd
@@ -116,16 +116,16 @@ A question posed in Phase I was, "How does ball speed affect score?"  One approa
 <img src ="https://user-images.githubusercontent.com/1431998/50408064-4386ed80-07b2-11e9-955b-2b77e9c08f58.png" width = "430px" align = "left">
 Figure No. 7 shows the result and it appears that there is slight advantage to faster ball speeds. The plot shows that the average speed is highest for strikes and then 9s. Scores of 8 through 4 also reflect the benefit of ball speed.  Only when scores are 3, 2 and 1 does the data show the benefit of a slower roll.
 
-A similar analysis could be performed for the ball angle.
+A similar analysis for the ball angle is shown below.
 </br></br></br></br></br></br>
 
 ### _Jupyter Notebooks_
 
 Jupyter Notebooks, formerly iPython, is typically referred to as Jupyter.  With the beta release of Jupyter Labs, an IDE version, I will refer to just the notebook as JN to avoid confusion for future readers.  
 
-JN is a combination of Markdown with executable code in cells.  This example will repeat much of what was achieved above using AMLS. The text below is HTML, but the complete JN can be cloned from my GitHub repo or at https://notebooks.azure.com/clifford-eby/projects/duckpinphase2
+JN is a combination of Markdown with executable code in cells.  This example will repeat much of what was achieved above using AMLS. The text below is HTML, but the complete JN can be cloned from my GitHub repo or at https://notebooks.azure.com/clifford-eby/projects/duckpinphase2  If logged in, A clone of the notebook is created and you can change and rerun the commands.
 
-For a good description of JN on Azure, Scott Hanselman has a nice YouTube video on JN many features - https://www.youtube.com/watch?v=JWEhns28Cr4
+For a good description of JN on Azurewhich is free for compute and storage, Scott Hanselman has a nice YouTube video on JN many features - https://www.youtube.com/watch?v=JWEhns28Cr4
 
 #### Azure Storage SDK
 Surprisingly, the Azure Storage SDK was not pre-installed in Azure hosted JN.  Use pip or Annaconda (package managers) to install the azure storage sdk.  Once installed, this shell/bash command can be eliminated for futre runs in this project.
@@ -759,7 +759,7 @@ for x in range(0,10):
 
 ### _Data - Alternative Access_
 #### Github Repo
-In my GitHub repo, I have a dataset (pindatacsv.csv) that can be used for this notebook in lieu of the full dataset using the SAS token above.
+In my GitHub repo, I have a dataset (pindatacsv.csv) that can be used for this notebook in lieu of the full dataset that uses the SAS token above.
 
 I also have a dataset (results01.csv) used for testing.  It is 3400+ records of csv data in the format:
 `epc,up,y1,v1,v2,theta,x`
@@ -909,7 +909,7 @@ df3.head(5)
 </div>
 
 
-### Creating the SAS token
+#### Creating the SAS token
 The following shows how to create  a _Shared Access Signature_ to access the Azure table data in read/query only format.  Since the my credentials are needed to create the token, I have moved the code to a Markdown cell. To create the sas_token:
 ```python
 from azure.storage.table.models import TablePermissions
@@ -963,7 +963,7 @@ As GPIO pin use grew to support the 7-segment ball indicator and the input from 
 Digital output from a photoresistor was used by the laser tripwire to detect ball movement.  I found that the tripwire's sensitivity could detect all balls, but that the Python script running on the RPI was not able to reliable read the HIGH input value on the GPIO pin.  When it was performing other activities (finding pins or movement with the reset arm or setter), it often missed the HIGH state and would not count the tripping event.
 <img src ="https://user-images.githubusercontent.com/1431998/50408086-a7111b00-07b2-11e9-9457-481a062cc2db.jpg" width = "200px" align = "left">
 <img src ="https://user-images.githubusercontent.com/1431998/50533430-5cb3d500-0af7-11e9-829e-e3006e1c5430.jpg" width = "200px" align = "right">
-To solve this issue, I plan to try a Bistable latching relay module.  This will "save" the HIGH state of the output pin until the RPI is ready to read it.  At that point, it gets reset to LOW and the ball counter is incremented.  This relay also solves a voltage issue as the photoresistor module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
+To solve this issue, I plan to try a 555 timer relay module.  This will "save" the HIGH state of the output pin until the RPI is ready to read it.  At that point, it gets reset to LOW and the ball counter is incremented.  This relay also solves a voltage issue as the photoresistor module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
 
 An alternative to the reset arm and setter detection routines is also being considered.  Both the reset arm and setter (deadwood) actions are user initiated by buttons at the head of the lane.  Both actions turn on lights on the headboard that stay lighted during the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the light cycle is long enough to avoid the need for the latching relay.   
 
@@ -978,7 +978,7 @@ An alternative to the reset arm and setter detection routines is also being cons
 
 ### _Appendix B AMLS python script for plotting a figure_
 
-Plots created using MatplotLib in AMLS are not automatically redirected to images. The user must explicitly save any plots to PNG files.
+Plots created using MatplotLib in AMLS are not automatically redirected to the AMLS view. The user must explicitly save any plots to PNG files.
 
 To generate images from MatplotLib, use the following process:
 * switch the backend to “AGG” from the default renderer

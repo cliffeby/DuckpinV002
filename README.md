@@ -119,15 +119,11 @@ Figure No. 7 shows the result and it appears that there is slight advantage to f
 A similar analysis could be performed for the ball angle.
 </br></br></br></br></br></br>
 
-### _Jupyter Notebook_
-https://notebooks.azure.com/clifford-eby/projects/duckpinphase2
-
-![png](https://user-images.githubusercontent.com/1431998/50466200-17ae6800-096a-11e9-8460-1997debbc14b.png)
 ### _Jupyter Notebooks_
 
 Jupyter Notebooks, formerly iPython, is typically referred to as Jupyter.  With the beta release of Jupyter Labs, an IDE version, I will refer to just the notebook as JN to avoid confusion for future readers.  
 
-JN is a combination of Markdown with executable code in cells.  This example will repeat much of what was achieved above using AMLS. The text below is HTML, but the complete JN can be cloned from my GitHub repo.
+JN is a combination of Markdown with executable code in cells.  This example will repeat much of what was achieved above using AMLS. The text below is HTML, but the complete JN can be cloned from my GitHub repo or at https://notebooks.azure.com/clifford-eby/projects/duckpinphase2
 
 For a good description of JN on Azure, Scott Hanselman has a nice YouTube video on JN many features - https://www.youtube.com/watch?v=JWEhns28Cr4
 

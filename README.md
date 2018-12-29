@@ -322,15 +322,9 @@ df.head(5) #Show first five records in the dataframe
 </table>
 </div>
 
-
-
-
 ```python
 df.tail(5) #Show last five records in the dataframe
 ```
-
-
-
 
 <div>
 <table class="dataframe">
@@ -473,10 +467,7 @@ df.tail(5) #Show last five records in the dataframe
 </table>
 </div>
 
-
-
 * Compute the number of pins standing for each decimal value of the endingPinCount
-
 
 ```python
 #Function to count the number of 1s in the binary equivalent of a decimal value
@@ -497,9 +488,6 @@ def numUp():
 df['up']= df['endingPinCount'].map(numUp())
 df.head(5)
 ```
-
-
-
 
 <div>
 <table class="dataframe">
@@ -649,7 +637,6 @@ df.head(5)
 </div>
 
 
-
 * Shape with Pandas and exclude unwanted columns.
 
 Use Pandas to generate the dataset created in AMLS with SQLite.  The sql was:
@@ -678,9 +665,6 @@ df1= df1.drop(['PartitionKey','RowKey','Timestamp','beginingPinCount','etag', 'r
                'x0','y0','x1','y1','x2','y2','x3','y3','x4','y4','x5','y5'], axis=1)
 df1.head(5)
 ```
-
-
-
 
 <div>
 <table class="dataframe">
@@ -745,15 +729,11 @@ df1.head(5)
 </table>
 </div>
 
-
-
 Similar to AMLS, I plot the data but this time will use theta to see if ball angle and presumably spin affect pin results.  A shell/bash command is needed to redirect the plot output to JN.
-
 
 ```python
 %matplotlib inline
 ```
-
 
 ```python
 import matplotlib.pyplot as plt
@@ -773,8 +753,6 @@ for x in range(0,10):
     g = endcountGroup.describe()
     ax.errorbar(x, g.iloc[1][4], g.iloc[2][4], marker='^')
 # fig.savefig ("duckpin.png")
-
-
 ```
 
 ![png](https://user-images.githubusercontent.com/1431998/50466200-17ae6800-096a-11e9-8460-1997debbc14b.png)
@@ -806,9 +784,6 @@ csv = np.sort(csv)
 df3 = pd.DataFrame(csv)
 df3.head(5)
 ```
-
-
-
 
 <div>
 <table class="dataframe">
@@ -934,7 +909,6 @@ df3.head(5)
 </div>
 
 
-
 ### Creating the SAS token
 The following shows how to create  a _Shared Access Signature_ to access the Azure table data in read/query only format.  Since the my credentials are needed to create the token, I have moved the code to a Markdown cell. To create the sas_token:
 ```python
@@ -951,8 +925,9 @@ table_sas_token = table_service.generate_table_shared_access_signature(
 table_sas_token
 ```
 
-
 ### _Improving Framerates_
+Typically the video captured generates at least three frames for even the fastest balls.  In real time the RPI can not process each frame and allows the video to capture frame but does not process them.  As a result the ball is missed.  Several attempts to improve the frame rate were tried. Python offers threading and use of multiprocessing on the RPI's four cores.  Since the ball counter and trip wire process needed the greatest speed, it was moved to a thread and then later to a separte process. The frequency of chacking the pin count was varied and shown as in mod notation. The table below show caluclated frame rates while a RPI was running the DPBoot.py script.
+
 
 ### _Hardware Updates_
 #### GPIO Breakout Kit

@@ -136,7 +136,7 @@ Surprisingly, the Azure Storage SDK was not pre-installed in Azure hosted JN.  U
 ```
 
 #### Import Data
-Azure Table data is imported using the Azure Storage /Table Storage SDK and the data is shaped using Pandas to match the AMLS dataset.  I would typically import my credentials which are needed for Azure access, but for this public notebook, I use a Shared Access Signature token to access the data in read/query only format.  The token has an expiration date which can be refresehed on request.  Alternatively, I have a small sample dataset, in my DuckpinA repo on GitHub. See below in _Data Alternatives_ on how to access web based data.
+Azure Table data is imported using the Azure Storage /Table Storage SDK and the data is shaped using Pandas to match the AMLS dataset.  I would typically import my credentials which are needed for Azure access, but for this public notebook, I use a Shared Access Signature token to access the data in read/query only format.  The token has an expiration date which can be refresehed on request.  Alternatively, I have a small sample dataset, in my DuckpinA repo on GitHub. See below in _Data Alternative Access_ on how to access web based data.
 * Imports and constants
 
 
@@ -757,7 +757,7 @@ for x in range(0,10):
 
 ![png](https://user-images.githubusercontent.com/1431998/50466200-17ae6800-096a-11e9-8460-1997debbc14b.png)
 
-### _Alternative Data Souces_
+### _Data - Alternative Access_
 #### Github Repo
 In my GitHub repo, I have a dataset (pindatacsv.csv) that can be used for this notebook in lieu of the full dataset using the SAS token above.
 

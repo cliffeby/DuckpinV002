@@ -940,6 +940,20 @@ Typically the video captured generates at least three frames for even the fastes
 6  |1440  |   |	 |	x  |	 |  
 4.5  |1440  |x   |x	 |	x  |	 |  
 
+I expected that the 15 frames per second 640X480 resolution would be fast enough, but it frequently missed gutter balls in the left lane.    Also, it created noise in recognizing the back row pins.  Converting to HSV widening color selection of red helped but did not solve the blinking issue.  A Python collection datatype and my "mode filter" did the trick.  When it comes to data, Python just works.  Code below:
+```Python
+bitBuckets =  collections.deque(13*[1], 13)
+pinCounts =[bitBuckets for x in range(10)]
+def myModeFilter(index):
+    global pinCounts
+    pinCounts[index].append(1)
+    newValue = statistics.mode(pinCounts[index])
+    if newValue ==1:
+        return 2**(9-index)
+    else:
+        return 0
+```        
+
 
 ### _Hardware Updates_
 #### GPIO Breakout Kit

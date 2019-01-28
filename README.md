@@ -128,7 +128,7 @@ JN is a combination of Markdown with executable code in cells.  This example wil
 For a good description of JN on Azurewhich is free for compute and storage, Scott Hanselman has a nice YouTube video on JN many features - https://www.youtube.com/watch?v=JWEhns28Cr4
 
 #### Azure Storage SDK
-Surprisingly, the Azure Storage SDK was not pre-installed in Azure hosted JN.  Use pip or Annaconda (package managers) to install the azure storage sdk.  Once installed, this shell/bash command can be eliminated for futre runs in this project.
+Surprisingly, the Azure Storage SDK was not pre-installed in Azure hosted JN.  Use pip or Annaconda (package managers) to install the azure storage sdk.  Once installed, this shell/bash command can be eliminated for future runs in this project.
 
 
 ```python

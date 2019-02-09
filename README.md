@@ -967,7 +967,7 @@ To solve this issue, I used a 555 timer relay module.  This module will "save" t
 
 Once implemented, I encoutered two problems.  First, it was hard to physically afix the mirror, laser and photoresistor.  Structural softness at the pinsetter equipment often misaligned the trip wire.  Second, the photoresistor would miss very fast balls - about 15 percent, making it unrelaible.  I could not obtain specs for these $1 modules, but I'm told that a phototransistor is what's needed.  Afraid of frequent calibration issues, I took another path.
 
-I put a mechanical trip switch in the ball retur. Other than a long delay, it counts the ball consistently.
+I put a mechanical trip switch in the ball return. Other than a long delay, it counts the ball consistently.
 
 An alternative to the reset arm and setter image-detection routines was also implemented.  Both the reset arm and setter (deadwood) actions are bowler initiated via push buttons. Both actions turn on lights on the headboard that stay lighted during most of the reset/deadwood action.  Using a photoresistor module for each eliminates the computational effort to detect arm and setter movement and the light cycle is long enough to avoid the need for the latching relay. To deal with the 5V output, I reversed the relay and took the output from the photoresistor to trigger the relay with a 3.3V source. 
 

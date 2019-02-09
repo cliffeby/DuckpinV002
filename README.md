@@ -65,7 +65,7 @@ Figure No. 2 shows the visualized data.  Visualize is a right click option on mo
 </br>
 </br>
 </br>
-In Figure No. 3, I use a Pthon Script to create a new field(column) for the data. Drag the Pthyon Script object on the canvas and connect it to the imported data table.  This new field is the number of pins standing for each record. The function, numsUp() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframes.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
+In Figure No. 3, I use a Python Script to create a new field(column) for the data. Drag the Pthyon Script object on the canvas and connect it to the imported data table.  This new field is the number of pins standing for each record. The function, numsUp() simply counts the number of ones in the binary value of the endingPinCount.  In AMLS, Python Scripts import up to two pandas datasets.  These datasets are referred to as dataframes.  Adding a column is a one line statement with no need to iterate through the entire dataset. 
 </br>
 The Python Script is easily edited using the sript tag in the right menu.  Since AMLS is not a code editor, I recommend starting with simple Python and pandas expressions achieving results and then increasing complexity.  AMLS error messages often terse.
 ```python
@@ -123,12 +123,12 @@ A similar analysis for the ball angle is shown below.
 
 Jupyter Notebooks, formerly iPython, is typically referred to as Jupyter.  With the beta release of Jupyter Labs, an IDE version, I will refer to just the notebook as JN to avoid confusion for future readers.  
 
-JN is a combination of Markdown with executable code in cells.  This example will repeat much of what was achieved above using AMLS. The text below is HTML, but the complete JN can be cloned from my GitHub repo or at https://notebooks.azure.com/clifford-eby/projects/duckpinphase2  If logged in, A clone of the notebook is created and you can change and rerun the commands.
+JN is a combination of Markdown with executable code in cells.  This example will repeat much of what was achieved above using AMLS. The text below is HTML, but the complete JN can be cloned from my GitHub repo or at https://notebooks.azure.com/clifford-eby/projects/duckpinphase2  If logged in, a clone of the notebook is created and you can change and rerun the commands.
 
-For a good description of JN on Azurewhich is free for compute and storage, Scott Hanselman has a nice YouTube video on JN many features - https://www.youtube.com/watch?v=JWEhns28Cr4
+For a good description of JN on Azure which is free for compute and storage, Scott Hanselman has a nice YouTube video on JN many features - https://www.youtube.com/watch?v=JWEhns28Cr4
 
 #### Azure Storage SDK
-Surprisingly, the Azure Storage SDK was not pre-installed in Azure hosted JN.  Use pip or Annaconda (package managers) to install the azure storage sdk.  Once installed, this shell/bash command can be eliminated for future runs in this project.
+Surprisingly, the Azure Storage SDK was not pre-installed in Azure hosted JN.  Use pip or Annaconda (package managers) to install the Azure Storage SDK.  Once installed, this shell/bash command can be eliminated for future runs in this project.
 
 
 ```python
@@ -957,15 +957,26 @@ def myModeFilter(index):
 
 ### _Hardware Updates_
 #### GPIO Breakout Kit
-As GPIO pin use grew to support the 7-segment ball indicator and the input from the laser tripwire to detect the ball, it became difficult to adjust the wiring and to keep the jumper wires tightly inserted in the RPI, relay, and sensor boards.  Breakout kits povide some flexibility but but require soldering to a PCB board and managing the maze of jumper wires is not improved.  I'm current using the breakout board, but may go back to the direct RPI connection and change GPIO pin numbers to keep as much of the ribbon unseparated as possible.
+As GPIO pin use grew to support the 7-segment ball indicator and the input from the laser tripwire to detect the ball, it became difficult to adjust the wiring and to keep the jumper wires tightly inserted in the RPI, relay, and sensor boards.  Breakout kits povide some flexibility but but require soldering to a PCB board and managing the maze of jumper wires is not improved.  I'm back to the direct RPI connection and keep as much of the ribbon unseparated as possible.
 
 #### Photoresistor modules
-Digital output from a photoresistor was used by the laser tripwire to detect ball movement.  I found that the tripwire's sensitivity could detect all balls, but that the Python script running on the RPI was not able to reliable read the HIGH input value on the GPIO pin.  When it was performing other activities (finding pins or movement with the reset arm or setter), it often missed the HIGH state and would not count the tripping event.
+Digital output from a photoresistor was used by the laser tripwire to detect ball movement.  I found that the tripwire's sensitivity could detect balls, but that the Python script running on the RPI was not able to reliable read the HIGH input value on the GPIO pin.  When it was performing other activities (finding pins or movement with the reset arm or setter), it often missed the HIGH state and would not count the tripping event.
 <img src ="https://user-images.githubusercontent.com/1431998/50408086-a7111b00-07b2-11e9-9457-481a062cc2db.jpg" width = "200px" align = "left">
 <img src ="https://user-images.githubusercontent.com/1431998/50533430-5cb3d500-0af7-11e9-829e-e3006e1c5430.jpg" width = "200px" align = "right">
-To solve this issue, I plan to try a 555 timer relay module.  This will "save" the HIGH state of the output pin until the RPI is ready to read it.  At that point, it gets reset to LOW and the ball counter is incremented.  This relay also solves a voltage issue as the photoresistor module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
+To solve this issue, I used a 555 timer relay module.  This module will "save" the HIGH state of the output pin until the RPI is ready to read it.  After a preset delay (one second), it gets reset to LOW and the ball counter is incremented.  This relay also solves a voltage issue as the photoresistor module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
 
-An alternative to the reset arm and setter detection routines is also being considered.  Both the reset arm and setter (deadwood) actions are user initiated by buttons at the head of the lane.  Both actions turn on lights on the headboard that stay lighted during the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the light cycle is long enough to avoid the need for the latching relay.   
+Once implemented, I encoutered two problems.  First, it was hard to fix the mirror, laser and photoresistor.  Structural softness at the pinsetter equipment often misaligned the trip wire.  Second, the photoresistor would miss very fast balls - about 15%, making it unrelaible.  I did not have specs for these $1 modules, but i'm told that a phototransistor is waht's needed.  Afraid on frequent calibration issues, i too another path.
+
+I put a mechanical trip switch in the ball return and other than a long delay, it counts the ball consistently.
+
+An alternative to the reset arm and setter detection routines was also implemented.  Both the reset arm and setter (deadwood) actions are bowler initiated push buttons. Both actions turn on lights on the headboard that stay lighted during most of the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the light cycle is long enough to avoid the need for the latching relay. To deal with the 5V output, I reversed the relay and took the ouput from the photoresistor to trigger the relay with a 3.3V source. 
+
+#### Debounce
+When an electrical switch closes or opens, it is not a discrete digital event.  During the transistion (milliseconds) the RPI reads the input as changing from HIGH to LOW multiple times.  Many times, your code can ignore this bounce effect, but since I was counting the number of balls, I had to eliminate it.  Fortunately, the GPIO module has a routine to detect the rising or falling edge of a digital sigmal.  The following debounce code solved my issue
+```Python
+ while (GPIO.input(sensor[0]) == GPIO.HIGH):
+       GPIO.wait_for_edge(sensor[0], GPIO.FALLING)
+       time.sleep(.05)
 
 
 ### _Appendix A - Plots of high-frequency results_

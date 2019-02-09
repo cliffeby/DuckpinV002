@@ -965,18 +965,19 @@ Digital output from a photoresistor was used by the laser tripwire to detect bal
 <img src ="https://user-images.githubusercontent.com/1431998/50533430-5cb3d500-0af7-11e9-829e-e3006e1c5430.jpg" width = "200px" align = "right">
 To solve this issue, I used a 555 timer relay module.  This module will "save" the HIGH state of the output pin until the RPI is ready to read it.  After a preset delay (one second), it gets reset to LOW and the ball counter is incremented.  This relay also solves a voltage issue as the photoresistor module requires 5V to operate and outputs 5V to the RPI.  The recommended max to an RPI GPIO input is 3.3V.
 
-Once implemented, I encoutered two problems.  First, it was hard to fix the mirror, laser and photoresistor.  Structural softness at the pinsetter equipment often misaligned the trip wire.  Second, the photoresistor would miss very fast balls - about 15%, making it unrelaible.  I did not have specs for these $1 modules, but i'm told that a phototransistor is waht's needed.  Afraid on frequent calibration issues, i too another path.
+Once implemented, I encoutered two problems.  First, it was hard to physically afix the mirror, laser and photoresistor.  Structural softness at the pinsetter equipment often misaligned the trip wire.  Second, the photoresistor would miss very fast balls - about 15 percent, making it unrelaible.  I could not obtain specs for these $1 modules, but I'm told that a phototransistor is what's needed.  Afraid of frequent calibration issues, I took another path.
 
-I put a mechanical trip switch in the ball return and other than a long delay, it counts the ball consistently.
+I put a mechanical trip switch in the ball retur. Other than a long delay, it counts the ball consistently.
 
-An alternative to the reset arm and setter detection routines was also implemented.  Both the reset arm and setter (deadwood) actions are bowler initiated push buttons. Both actions turn on lights on the headboard that stay lighted during most of the reset/deadwood action.  Using a photoresistor module for each would eliminate the computational effort to dected arm and setter movement and the light cycle is long enough to avoid the need for the latching relay. To deal with the 5V output, I reversed the relay and took the ouput from the photoresistor to trigger the relay with a 3.3V source. 
+An alternative to the reset arm and setter image-detection routines was also implemented.  Both the reset arm and setter (deadwood) actions are bowler initiated via push buttons. Both actions turn on lights on the headboard that stay lighted during most of the reset/deadwood action.  Using a photoresistor module for each eliminates the computational effort to detect arm and setter movement and the light cycle is long enough to avoid the need for the latching relay. To deal with the 5V output, I reversed the relay and took the output from the photoresistor to trigger the relay with a 3.3V source. 
 
 #### Debounce
-When an electrical switch closes or opens, it is not a discrete digital event.  During the transistion (milliseconds) the RPI reads the input as changing from HIGH to LOW multiple times.  Many times, your code can ignore this bounce effect, but since I was counting the number of balls, I had to eliminate it.  Fortunately, the GPIO module has a routine to detect the rising or falling edge of a digital sigmal.  The following debounce code solved my issue
+When an electrical switch closes or opens, it is not a discrete digital event.  During the transistion (milliseconds) the RPI reads the input as changing from HIGH to LOW multiple times.  Many times, your code can ignore this bounce effect, but since I was counting the number of balls, I had to eliminate it.  Fortunately, the GPIO module has a routine to detect the rising or falling edge of a digital signal.  The following debounce code solved my issue
 ```Python
  while (GPIO.input(sensor[0]) == GPIO.HIGH):
        GPIO.wait_for_edge(sensor[0], GPIO.FALLING)
        time.sleep(.05)
+```
 
 
 ### _Appendix A - Plots of high-frequency results_

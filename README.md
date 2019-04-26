@@ -1158,3 +1158,7 @@ for (key, value) in sorted(arrangeDict(ecDict,'Count').items(), key=itemgetter(1
 plt.tight_layout(pad=4.0, w_pad=0.5, h_pad=6.0)
 plt.show()
 ```
+# Appendix D  Resources
+
+Pandas
+https://towardsdatascience.com/23-great-pandas-codes-for-data-scientists-cca5ed9d8a38

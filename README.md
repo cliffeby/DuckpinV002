@@ -53,7 +53,7 @@ This example imports the stored pindata from Azure Tables and shapes it into a d
 </br>
 In Figure No. 1, I drag the Import Data object from the left menu and fill in the blanks/drop down approach or the  “Launch import Data Wizzard” on the right menu.  Once successful credentials, containers and files names are specified, the data is easily viewed and importantly can be viewed at each step in the process.  During testing, I used cached results to improve speed.
 </br>
-</br>
+Beginning in 2019 I began to have Export errors and in Jan 2020, Import failed with Error 0000.  To fix both I had to "Disable" Secure Transfer on my storage account in its Configuration setting
 </br>
 </br>
 </br>

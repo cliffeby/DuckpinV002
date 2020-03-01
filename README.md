@@ -14,6 +14,10 @@ Phase I explains how nightly postprocessing of video data is analyzed and stored
 
 The data in Azure tables can be exported to Excel or PowerBi and Phase I contained a simple spreadsheet for sorting and reviewing static data.  For a more dynamic approach, I explored Azure Machine Learning Studio (AMLS) and with a little trial and error was able to create excellent visualizations and statistics.  Appendix A is a Matplotlib graphic of the top 20 endingPinCount results from the Azure table data.
 
+### _Project Dataflows_
+This graphic shows the dataflows for the project.  A looping video is captured by the Raspberry Pi and images are extracted and analyzed for state change.  When true the GPIO bus uses relays to turn off downed pins' led lights.  Video history is sent via wifi to the IoT Hub and placed in Blob Storage.  Nightlly, videos are post processed and xy pairs are stored in an Azure Table.  Various tools are later used to analyze and report on the data.
+
+### _AMLS Intro_
 AMLS is a drag and drop interface primarily intended for creating machine learning models.  It has extensive data shaping tools and makes access to Azure data seamless.  You can also import Python scripts for greater analysis.  Data visualization with AMLS or the python matplotlib import is supported and processes can be exported to Juptyer Notebooks.  To get started in AMLS, take a look at a couple of short YouTube videos e.g. https://www.youtube.com/watch?v=csFDLUYnq4w or if you have an Azure account (free), click through the https://studio.azureml.net/Home/ Experiment Tutorial and then one of the other samples that reflect your area of interest.
 
 ### _AMLS Visualization Example_

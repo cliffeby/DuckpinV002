@@ -15,7 +15,7 @@ Phase I explains how nightly postprocessing of video data is analyzed and stored
 The data in Azure tables can be exported to Excel or PowerBi and Phase I contained a simple spreadsheet for sorting and reviewing static data.  For a more dynamic approach, I explored Azure Machine Learning Studio (AMLS) and with a little trial and error was able to create excellent visualizations and statistics.  Appendix A is a Matplotlib graphic of the top 20 endingPinCount results from the Azure table data.
 
 ### _Project Dataflows_
-This graphic shows the dataflows for the project.  A looping video is captured by the Raspberry Pi and images are extracted and analyzed for state change.  When true the GPIO bus uses relays to turn off downed pins' led lights.  Video history is sent via wifi to the IoT Hub and placed in Blob Storage.  Nightlly, videos are post processed and xy pairs are stored in an Azure Table.  Various tools are later used to analyze and report on the data.
+This graphic shows the dataflows for the project.  A looping video is captured by the Raspberry Pi and images are extracted and analyzed for state change.  When state change is true, the GPIO bus activates relays to turn off downed pins' led headboard lights.  Two to three seconds of video history is sent via wifi to the IoT Hub and placed in Blob Storage.  Nightly, videos are post processed and xy pairs are stored in an Azure Table.  The various tools described below are used to analyze and report on the data.
 
 <img src= "https://user-images.githubusercontent.com/1431998/75619428-8e845980-5b49-11ea-9163-1dc9a9b95640.png">
 

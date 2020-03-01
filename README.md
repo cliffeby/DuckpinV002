@@ -5,7 +5,7 @@ Note to reader - The Dinky styling for this page is not easily readable.  I sugg
 <img src= "https://user-images.githubusercontent.com/1431998/46451141-c32c8f80-c762-11e8-9c70-25089f44a9af.png" width = "430px" align = "right">
 
 ### _Background_
-In Phase I  of [Duckpins](https://cliffeby.github.io/DuckpinV001/), I described the hardware, software and initial results of a project to illuminate the Lucite numbers on the headboards for Congressional Country Club’s duckpin bowling alleys.  Phase II is an update to the project and focuses on tools for analysis, improvement to the streaming framerate, and alternative configurations for detecting the ball count and setter and reset actions.  Pahse III [DuckpinsIII](https://cliffeby.github.io/DuckpinV003/) is stricly data analysis.
+In Phase I  of [Duckpins](https://cliffeby.github.io/DuckpinV001/), I described the hardware, software and initial results of a project to illuminate the Lucite numbers on the headboards for Congressional Country Club’s duckpin bowling alleys.  Phase II is an update to the project and focuses on tools for analysis, improvement to the streaming framerate, and alternative configurations for detecting the ball count and setter and reset actions. [Phase_III](https://cliffeby.github.io/DuckpinV003/) is stricly data analysis.
 
 ### _Data Analysis Tools_
 Phase I explains how nightly postprocessing of video data is analyzed and stored in an Azure table.  The json data contain xy pairs of the ball locations that produce the endingPinCount.  The format of those records is:
